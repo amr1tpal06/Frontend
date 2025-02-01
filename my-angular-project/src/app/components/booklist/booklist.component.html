@@ -150,12 +150,7 @@
       <div class="book-container" [routerLink]="['/book', book.id]">
           <img src="{{book.imagepath}}" alt="{{book.title}}" height="200px" width="auto">
           <div class="hover-box">
-            <p><strong>Title:</strong>{{book.title}}<br>
-              <strong>Author:</strong>{{book.author}}<br>
-              <strong>Audience:</strong>{{book.audience}}<br>
-              <strong>Rating:</strong> {{book.rating}}<br>
-              <strong>Status:</strong> {{book.status}}<br>
-            </p>
+            <p>{{book.title}}</p>
           </div>
       </div>
       }
