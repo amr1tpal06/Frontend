@@ -1,0 +1,65 @@
+<style>
+  .chart-size{
+    display:flex;
+    height:500px;
+    width:auto;
+  }
+  .container{
+    display:flex;
+    flex-direction: row;
+  }
+</style>
+
+<p>Number of books in the library: {{number}}</p>
+<div class="container">
+  <div class="item">
+    <h1>Books per author</h1>
+    <div class="chart-size">
+      <canvas id="My Chart">{{ chart  }}</canvas>
+    </div>
+  </div>
+
+  <div class="item">
+    <h1>Books per genre</h1>
+  <div class="chart-size">
+    <canvas id="chart_2"> {{ chart_2 }}</canvas>
+  </div>
+  </div>
+</div>
+
+  <ul>
+    <p>Highest Rated book : {{highest.title}} {{highest.author}} {{highest.rating}}</p>
+    <p>Lowest Rated book: {{lowest.title}} {{lowest.author}} {{lowest.rating}}</p>
+  </ul>
+
+  <ul>
+    <p>Most Pages: {{mostpages.title}}</p>
+    <p>Least Pages: {{leastpages.title}}</p>
+  </ul>
+
+  <!--number of books per author-->
+  <!--books under each author--> <!--change the endpoint-->
+  <!--make look nice, fix the functionalities upon adding classes-->
+  <!--Testing and documentation and then done-->
+
+  <!--
+@for (name of genrenames; track name) {
+  {{name}}
+}
+
+@for (book of genrebooks; track book) {
+  {{book}}
+}
+<p>Books by genre</p>
+<ul>
+  <li *ngFor="let genre of genres">
+    Author: {{ genre | json }} 
+  </li>
+</ul>
+
+  <p>Books by author</p>
+  <ul>
+    <li *ngFor="let author of authors">
+      Author: {{ author | json }} 
+    </li>
+  </ul>-->

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Application</title>
+  <style>
+    #delete{
+      background-color: red;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(6,1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .info-container {
+      display:grid;
+      grid-template-rows: 80% 20%;
+      height:200px  /* Defines two rows with 80% and 20% height */
+    }
+
+    .book-container {
+      background-color: transparent;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+
+    }
+
+    .book-container img {
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.3s ease;
+      object-fit: cover;
+    }
+
+    .book-container:hover {
+      transform: scale(1.05);
+    }
+
+    .hover-box {
+      display: none; 
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); 
+      color: white;
+      padding: 20px;
+      font-size:10px;
+    }
+
+    .book-container:hover .hover-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align:center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .book-container:hover img {
+      opacity: 0.3;
+    }
+
+    .buttons {
+      padding: 10px;
+      background-color: #ECF0F1;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .buttons button {
+      padding: 8px 15px;
+      background-color: #3498DB;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .buttons button:hover {
+      background-color: #2980B9;
+    }
+
+    h1 {
+      padding: 20px;
+      font-size: 28px;
+      text-align: center;
+      color: #2C3E50;
+    }
+  </style>
+</head>
+    <!--<label for="Filter">Filter by:</label>
+    <input type="text" id="Book" placeholder="Enter book...">-->
+
+<!--  <form>
+      <input [(ngModel)]="category" placeholder="Filter by">
+    </form>-->  
+
+    <!--<form action="http://127.0.0.1:5000/filter-by" method="GET">
+      <input type="text" name ="userinput" placeholder="Filter by">
+      <button type="submit">SUBMIT</button>
+    </form>-->
+
+    <form (ngSubmit)="filterby(category, userinput)">
+      <input 
+        type="text" 
+        [(ngModel)]="category" 
+        name="category" 
+        placeholder="Choose category" 
+        required 
+        list="categories">
+      <datalist id="categories">
+        <option *ngFor="let attribute of attributes" [value]="attribute"></option>
+      </datalist>
+    
+      <input 
+        type="text" 
+        [(ngModel)]="userinput" 
+        name="userinput" 
+        placeholder="Filter by" 
+        required>
+      
+      <button type="submit">Submit</button>
+    </form>
+  
+    <h1>Borrowed</h1>
+    <div class="grid-container">
+      @for(borrowed of borrowed; track borrowed) {
+      <div class="book-container" [routerLink]="['/book', borrowed.id]">
+          <img src="{{borrowed.imagepath}}" alt="{{borrowed.title}}" height="200px" width="auto">
+          <div class="hover-box">
+            <p><strong>Title:</strong>{{borrowed.title}}<br>
+              <strong>Author:</strong>{{borrowed.author}}<br>
+              <strong>Audience:</strong>{{borrowed.audience}}<br>
+              <strong>Rating:</strong> {{borrowed.rating}}<br>
+              <strong>Status:</strong> {{borrowed.status}}<br>
+            </p>
+          </div>
+      </div>
+      }
+  </div>
+
+  <h1>Available books</h1>
+  <div class="grid-container">
+      @for(book of books; track book) {
+      <div class="book-container" [routerLink]="['/book', book.id]">
+          <img src="{{book.imagepath}}" alt="{{book.title}}" height="200px" width="auto">
+          <div class="hover-box">
+            <p><strong>Title:</strong>{{book.title}}<br>
+              <strong>Author:</strong>{{book.author}}<br>
+              <strong>Audience:</strong>{{book.audience}}<br>
+              <strong>Rating:</strong> {{book.rating}}<br>
+              <strong>Status:</strong> {{book.status}}<br>
+            </p>
+          </div>
+      </div>
+      }
+  </div>
+
+  <!--add, edit, delete and borrow under each book image - css video tutorial-->
+  <!--trying to delete and then reload all of the items - not efficient-->
+  <!--add work out why not working-->
+  <!--edit, borrow, add rating-->
+  <!--make stats look nice-->

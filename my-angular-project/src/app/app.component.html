@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .header-class {
+      display:flex;
+      justify-content:space-between;
+      background-color: black;
+      color:white;
+      margin-bottom: 10px;
+      align-items:center;
+      height:50px;
+      width:100%;
+      font-family:sans-serif;
+    }
+
+    title{
+      font-family:Sans-serif;
+      font-size:50px;
+      margin-left:7px;
+      font-family:sans-serif;
+    }
+    a{
+      color:white;
+      margin:5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header-class">
+    <div class="title">Library Application</div>
+    <div>
+      <a href="#">Home</a> <!--list of books [routerlink]="/"-->
+      <a [routerLink]="'stats'">Stats</a>
+      <a [routerLink]="'admin'">Admin</a>
+    </div>
+  </header>
+
+  <router-outlet></router-outlet> 
+  </body>
+
+  <!--    button {
+      background-color:  #1ABC9C;
+      border-color:transparent;
+      font-family:sans-serif;
+      &:hover{
+        background-color: #16A085;
+      }
+      
+    }-->

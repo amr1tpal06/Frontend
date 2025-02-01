@@ -1,0 +1,38 @@
+.container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .chart-container {
+    margin: 20px 0;
+  }
+  
+  .stats-section {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .authors-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .authors-section li {
+    padding: 5px 0;
+    font-size: 16px;
+  }
+  
+  .authors-section strong {
+    font-size: 18px;
+  }
+  
