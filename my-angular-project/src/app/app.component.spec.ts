@@ -27,13 +27,19 @@ describe('AppComponent', () => {
           }
         }
       ]  
-    }).compileComponents();    
+    }).compileComponents();
 
     router = TestBed.get(Router); 
     location = TestBed.get(Location); 
     fixture = TestBed.createComponent(AppComponent); 
     router.initialNavigation(); 
   });
+
+  it ('navigate to "/book/2" path takes you to book page', fakeAsync(() => {
+    router.navigate(['book/2']);
+    tick();
+    expect(location.path()).toBe('/book/2');
+  }));
 
   it ('navigate to "/stats" path takes you to stats page', fakeAsync(() => {
     router.navigate(['stats']);
