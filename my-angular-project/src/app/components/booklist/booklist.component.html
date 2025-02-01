@@ -138,12 +138,7 @@
       <div class="book-container" [routerLink]="['/book', borrowed.id]">
           <img src="{{borrowed.imagepath}}" alt="{{borrowed.title}}" height="200px" width="auto">
           <div class="hover-box">
-            <p><strong>Title:</strong>{{borrowed.title}}<br>
-              <strong>Author:</strong>{{borrowed.author}}<br>
-              <strong>Audience:</strong>{{borrowed.audience}}<br>
-              <strong>Rating:</strong> {{borrowed.rating}}<br>
-              <strong>Status:</strong> {{borrowed.status}}<br>
-            </p>
+            <p>{{borrowed.title}}</p>
           </div>
       </div>
       }
