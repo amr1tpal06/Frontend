@@ -1,20 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Input } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-booklist',
   templateUrl: './booklist.component.html',
   styleUrl: './booklist.component.css',
-  imports: [FormsModule, RouterModule, MatButtonModule, MatToolbarModule, MatCardModule, HttpClientModule, CommonModule],
+  imports: [FormsModule, RouterModule, HttpClientModule, CommonModule],
   standalone: true,
 })
 
