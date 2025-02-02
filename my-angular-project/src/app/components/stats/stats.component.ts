@@ -13,7 +13,6 @@ Chart.register(...registerables);
 })
 
 export class StatsComponent {
-  title = 'stats-component';
   authors:any[]=[]
   author_names:any[]=[]
   author_counts:any[]=[]
@@ -22,6 +21,8 @@ export class StatsComponent {
   public config_2:any;
   chart_2:any;
   chart:any;
+  chart_3:any;
+  config_3:any;
 
   books:any[]=[]
   number:Number=0
@@ -35,6 +36,14 @@ export class StatsComponent {
   numofbooks:number[]=[]
   genrenames:any[]=[]
   num:number=0
+  audience:any[]=[]
+  audience_names:any[]=[]
+  audience_counts:any[]=[]
+  status:any[]=[]
+  status_names:any[]=[]
+  status_counts:any[]=[]
+  chart_4:any;
+  config_4:any;
   
   constructor(private http: HttpClient) {}
 
@@ -42,14 +51,70 @@ export class StatsComponent {
     this.http.get<any[]>('http://127.0.0.1:5000/')  
       .subscribe(
         response => {
-          this.books = response;
+          this.books = response ;
           this.number = this.books.length
         }
     );
+
+    this.http.get<any[]>('http://127.0.0.1:5000/books-by-status')
+      .subscribe(
+        response => {
+          this.status= response 
+          for (const status of this.status) {
+            this.status_names.push(status["status"])
+            this.status_counts.push(status["count"])
+          }
+
+          this.config_4= {
+            type: 'pie',
+            data: { 
+              labels: this.status_names, //x axis points
+              datasets: [{data:this.status_counts}]  
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            },
+          };
+          this.chart_4= new Chart('chart_4',this.config_4);
+        }
+      )
+
+
+    this.http.get<any[]>('http://127.0.0.1:5000/books-by-audience')
+      .subscribe(
+        response => {
+          this.audience= response 
+          for (const audience of this.audience) {
+            this.audience_names.push(audience["audience"])
+            this.audience_counts.push(audience["count"])
+          }
+
+          this.config_3= {
+            type: 'bar',
+            data: { 
+              labels: this.audience_names, //x axis points
+              datasets: [{data:this.audience_counts}] 
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            },
+          };
+          this.chart_3= new Chart('chart_3',this.config_3);
+        }
+      )
+
     this.http.get<any[]>('http://127.0.0.1:5000/books-by-genre') 
       .subscribe(
         response => {
-          this.genres = response;
+          this.genres = response ;
           for (const genre of this.genres) {
             this.genrebooks.push(genre["books"])
             this.num=genre["books"].length
@@ -129,6 +194,7 @@ export class StatsComponent {
           this.leastpages= response 
         }
       )
+
       
   }
 }

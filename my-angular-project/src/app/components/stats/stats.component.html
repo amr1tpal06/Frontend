@@ -27,6 +27,20 @@
   </div>
 </div>
 
+<div class="Books by audience">
+  <h1>Books by audience</h1>
+  <div class="chart-size">
+    <canvas id="chart_3"> {{ chart_3 }}</canvas>
+  </div>
+</div>
+
+<div class="Books by status">
+  <h1>Books by status</h1>
+  <div class="chart-size">
+    <canvas id="chart_4"> {{ chart_4 }}</canvas>
+  </div>
+</div>
+
   <ul>
     <p>Highest Rated book : {{highest?.title}} {{highest?.author}} {{highest?.rating}}</p>
     <p>Lowest Rated book: {{lowest?.title}} {{lowest?.author}} {{lowest?.rating}}</p>
@@ -36,30 +50,3 @@
     <p>Most Pages: {{mostpages?.title}}</p>
     <p>Least Pages: {{leastpages?.title}}</p>
   </ul> 
-
-  <!--number of books per author-->
-  <!--books under each author--> <!--change the endpoint-->
-  <!--make look nice, fix the functionalities upon adding classes-->
-  <!--Testing and documentation and then done-->
-
-  <!--
-@for (name of genrenames; track name) {
-  {{name}}
-}
-
-@for (book of genrebooks; track book) {
-  {{book}}
-}
-<p>Books by genre</p>
-<ul>
-  <li *ngFor="let genre of genres">
-    Author: {{ genre | json }} 
-  </li>
-</ul>
-
-  <p>Books by author</p>
-  <ul>
-    <li *ngFor="let author of authors">
-      Author: {{ author | json }} 
-    </li>
-  </ul>-->
