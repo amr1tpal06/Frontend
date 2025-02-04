@@ -98,17 +98,6 @@
     }
   </style>
 </head>
-    <!--<label for="Filter">Filter by:</label>
-    <input type="text" id="Book" placeholder="Enter book...">-->
-
-<!--  <form>
-      <input [(ngModel)]="category" placeholder="Filter by">
-    </form>-->  
-
-    <!--<form action="http://127.0.0.1:5000/filter-by" method="GET">
-      <input type="text" name ="userinput" placeholder="Filter by">
-      <button type="submit">SUBMIT</button>
-    </form>-->
 
     <form (ngSubmit)="filterby(category, userinput)">
       <input 
@@ -155,9 +144,3 @@
       </div>
       }
   </div>
-
-  <!--add, edit, delete and borrow under each book image - css video tutorial-->
-  <!--trying to delete and then reload all of the items - not efficient-->
-  <!--add work out why not working-->
-  <!--edit, borrow, add rating-->
-  <!--make stats look nice-->

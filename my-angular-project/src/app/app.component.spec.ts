@@ -17,14 +17,18 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes(routes),HttpClientTestingModule,AppComponent, StatsComponent, AdminComponent, BookComponent],  // Only RouterTestingModule should be here
+      imports: [RouterTestingModule.withRoutes(routes),HttpClientTestingModule, AppComponent, StatsComponent, AdminComponent, BookComponent],  // Only RouterTestingModule should be here
       providers:
       [
         {
-          provide: ActivatedRoute,
-          useValue: {
-            snapshot: {params: {id: '2'}}
-          }
+        provide: ActivatedRoute,
+        useValue: {
+          snapshot: {
+            paramMap: {
+              get: (key: string) => '2',  // Mocking a bookId of 2
+            },
+          },
+        },
         }
       ]  
     }).compileComponents();
@@ -70,5 +74,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-});  
-
+}); 

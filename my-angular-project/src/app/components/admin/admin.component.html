@@ -1,4 +1,5 @@
 <h1> Admin page</h1>
+<p> Add book</p>
 <form action="http://127.0.0.1:5000/add-book" method="POST">
   <input id= "title" name ="title" type="text" placeholder="enter title">
   <input id= "author" name= "author" type="text" placeholder="enter author">
@@ -13,6 +14,19 @@
 <form (ngSubmit)="deletebook(deletebookid)">
   <input type="text" placeholder="Book ID to delete" [(ngModel)]="deletebookid" name="deletebookid" [ngModelOptions]="{standalone: true}" required>
   <button type="submit">Delete Book</button>
+</form>
+
+<p> Edit Book</p>
+<form action="http://127.0.0.1:5000/edit-book/" method="POST">
+  <input id="book_id" name="book_id" type="number" placeholder="Enter Book ID" required>
+  <input id= "title" name ="title" type="text" placeholder="enter title">
+  <input id= "author" name= "author" type="text" placeholder="enter author">
+  <input id= "genre" name= "genre" type="text" placeholder="enter genre">
+  <input id= "pages" name ="pages" type="text" placeholder="enter pages">
+  <input id= "rating" name="rating" type="number" placeholder="enter rating">
+  <input id= "publicationyear" name="publicationyear" type="text" placeholder="enter publication year ">
+  <input id= "audience" name= "audience" type="text" placeholder="enter audience ">
+  <button type="submit">SUBMIT</button>
 </form>
 
 <app-booklist [onpage]="true"></app-booklist> 

@@ -47,31 +47,27 @@
 <div class="grid-container">
     <div class="book-container">
         <img src="{{bookitem.imagepath}}">
-        @if (bookitem.status==="available"){ <!--only if available will you then be able to borrow it -->
+        @if (bookitem.status==="available"){
             <button (click)="borrowbook()">Borrow</button>
         }
-        @if (bookitem.status==="borrowed"){ <!--only if borrowed will you then be able to return it -->
+        @if (bookitem.status==="borrowed"){ 
             <button (click)="returnbook()">Return</button>
-            <!--due date-->
         }
 
-        <form action= "add-rating">
-            <input type="number" placeholder="Rate" > <!--ngmodel rating-->
+        <form [action]="'http://127.0.0.1:5000/add-rating/' + bookId" method="POST">
+            <input type="number" name="rating" placeholder="Rate" required>
+            <button type="submit">Submit</button>
         </form>
-<!--mind is a fucking mess-->
 
-        <!--<form action= "add-rating" method="POST">
-            <input type="number" placeholder="Rate">
-        </form>-->
         @if (onadminpage===true){
-            <p>on admin page!!</p> <!--form to edit details about the book-->
+            <p>on admin page!!</p> 
         }
 
     </div>
     <div class="book-info">
         <p class="title">{{bookitem.title}}</p>
         <p (click)="showauthor()">{{bookitem.author}}</p> 
-        <p>{{bookitem.rating}} <!--<button>Rate</button></p>-->
+        <p>{{bookitem.rating}} 
         <p>{{bookitem.summary}}</p> 
         <p>{{bookitem.pages}} pages</p>
         <p> Genres: {{bookitem.genre}}</p>

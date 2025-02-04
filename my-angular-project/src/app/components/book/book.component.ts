@@ -25,7 +25,7 @@ export class BookComponent {
       })
 
   }
-
+  
   showauthor() {
     this.http.get('http://127.0.0.1:5000/show-author'+this.bookId)
       .subscribe( response => {
